@@ -1,0 +1,52 @@
+configSim data structures
+
+Network:general properties of the network
+       .actOut			matrix of weights between output units and CUs
+       .beta			matrix of beta parameters
+       .configNames		cell array giving name of each configural unit
+       .dParam			generalization parameter
+       .E			matrix of values giving associative strength of each CU
+       .intensity		matrix of values giving intensity of each stimulus
+       .nConfigs		number of configural units
+       .nStimuli		number of stimuli (ie input units)
+
+Data:	training data
+	.currentVt		matrix of current net associative strength of each pattern
+	.stage(X).Et		record of training data – CU associative strength
+	.stage(X).CUNames	record of training data – CU names
+	.stage(X).Vt		record of training data – pattern net associative strength
+	.Stage(X).patNames	record of training data – training pattern names
+
+Train:	features of current training set
+	.currentPatterns	patterns used in current training set
+	.currentList		list giving pattern number for each trial (reconciles .currentPats with .trials)
+	.currentNames		names of current training patterns
+	.nCurrentPats		number of training patterns
+	.nTrials		number of training trials
+	.patterns		definition of each unique pattern
+	.trialList		list giving pattern number for each trial (reconciles .patterns with .trials)
+	.trials			definition of each training trial (read from file)
+	.outcome		list of outcomes for each training trial (read from file)
+
+Sim:	miscellaneous properties of current simulation run
+	.blocks			blocks of trials in current run
+	.currentBlock		current block
+	.currentStage		current stage
+	.epochs			epochs per block
+	.figTitleList		matrix containing list of plot titles
+	.fileList		list of files used in current run
+	.currentFig		current plot title
+	.expFolder		path to simulation folder
+	.randomOrder		random order flag
+	.xlab			x-axis label
+	.xval			x-axis tick labels
+
+Module:	properties of learnSim module (ie configSim)
+	.author			author of module code
+	.contact		contact address of author
+	.date			date of release
+	.description		description of module
+	.institution		home institution of author
+	.name			name of module
+	.version		version number of module
+	

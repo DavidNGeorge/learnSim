@@ -1,0 +1,56 @@
+remSim data structures
+
+Network:general properties of the network
+	.activity		activity level in each population
+       	.active			populations contributing to each pattern
+	.activation		activity in each population for each pattern
+	.alpha			alpha value for each stimulus
+	.alphaPops		alpha value for each population
+       	.beta			matrix of beta parameters
+       	.nPatterns		number of possible patterns
+       	.nPopulations		number of populations in each stimulus representation
+       	.nStimuli		number of stimuli
+       	.patterns		all possible patterns that the network can be exposed to
+	.patternNames		names of each pattern
+       	.populations		definition of how each stimulus contributes to each population
+       	.r			matrix of r values
+       	.rParam			default r value if matrix not read from file
+       	.V			matrix of values giving associative strength of each population
+
+Data:	training data
+	.currentVSum		matrix of current net associative strength of each pattern
+       .stage(X).V		record of training data – population associative strength
+	.stage(X).Vsum		record of training data – pattern net associative strength
+	.Stage(X).patNames	record of training data – training pattern names
+
+Train:	features of current training set
+	.currentList	list of current patterns (w.r.t. .Network.patterns)
+	.nCurrentPats		number of training patterns
+	.nTrials		number of training trials
+	.outcome		list of outcomes for each training trial (read from file)
+	.trialList		list giving pattern number for each trial (w.r.t. .Network.patterns)
+	.trials			definition of each training trial (read from file)
+	
+Sim:	miscellaneous properties of current simulation run
+	.blocks			blocks of trials in current run
+	.currentBlock		current block
+	.currentStage		current stage
+	.epochs			epochs per block
+	.figTitleList		matrix containing list of plot titles
+	.fileList		list of files used in current run
+	.currentFig		current plot title
+	.expFolder		path to simulation folder
+	.randomOrder		random order flag
+	.rFromFile		r values from file or panel flag
+	.xlab			x-axis label
+	.xval			x-axis tick labels
+
+Module:	properties of learnSim module (ie configSim)
+	.author			author of module code
+	.contact		contact address of author
+	.date			date of release
+	.description		description of module
+	.institution		home institution of author
+	.name			name of module
+	.version		version number of module
+	
