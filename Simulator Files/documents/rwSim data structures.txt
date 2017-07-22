@@ -1,0 +1,54 @@
+remSim data structures
+
+Network:	general properties of the network
+       .active			units activated by each pattern
+	.alpha			alpha value for each stimulus
+       .beta			matrix of beta parameters
+       .nPatterns		number of possible patterns
+       .nStimuli		number of stimuli
+       .nUnits			number of units
+       .patterns		all possible patterns that the network can be exposed to
+	.patternNames		names of each pattern
+       .uniqueCues		flag indicating type of unique cues used by network
+       .unitAlpha		alpha value for each unit
+       .unitNames		name of each unit
+       .V			matrix of values giving associative strength of each unit
+
+Data:		training data
+	.current	VSum		matrix of current net associative strength of each pattern
+       .stage(X).V		record of training data – unit associative strength
+	.stage(X).Vsum		record of training data – pattern net associative strength
+	.Stage(X).patNames	record of training data – training pattern names
+
+Train:		features of current training set
+.currentList	list of current patterns (w.r.t. .Network.patterns)
+       .nCurrentPats		number of training patterns
+	.nTrials			number of training trials
+.outcome	list of outcomes for each training trial (read from file)
+.trialList	list giving pattern number for each trial (w.r.t. .Network.patterns)
+	.trials			definition of each training trial (read from file)
+	
+
+
+Sim:		miscellaneous properties of current simulation run
+       .blocks			blocks of trials in current run
+       .currentBlock		current block
+	.currentStage		current stage
+	.epochs			epochs per block
+	.figTitleList		matrix containing list of plot titles
+	.fileList			list of files used in current run
+	.currentFig		current plot title
+       .expFolder		path to simulation folder
+	.randomOrder		random order flag
+	.xlab			x-axis label
+	.xval			x-axis tick labels
+
+Module:	properties of learnSim module (ie configSim)
+	.author			author of module code
+	.contact		contact address of author
+	.date			date of release
+	.description		description of module
+	.institution		home institution of author
+       .name			name of module
+	.version			version number of module
+	

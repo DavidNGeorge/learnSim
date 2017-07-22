@@ -22,7 +22,7 @@ function varargout = learnSim(varargin)
 
 % Edit the above text to modify the response to help learnSim
 
-% Last Modified by GUIDE v2.5 29-Mar-2016 00:35:23
+% Last Modified by GUIDE v2.5 14-Jul-2017 17:28:17
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -109,4 +109,14 @@ function REMbutton_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
     remSim;
     set(handles.REMbutton, 'Enable', 'off');
+    guidata(hObject, handles);
+
+
+% --- Executes on button press in RWbutton.
+function RWbutton_Callback(hObject, eventdata, handles)
+% hObject    handle to RWbutton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+    rwSim;
+    set(handles.RWbutton, 'Enable', 'off');
     guidata(hObject, handles);

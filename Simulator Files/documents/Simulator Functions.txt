@@ -51,6 +51,21 @@
 %   trial types defined by ones and zeros used in learning simulators so
 %   that they appear in a convential order (e.g. A, B, C, AB, AC, BC, ABC)
 
+
+%lsimRWCues defines unique cues for compound stimuli
+%   [A, B, C, D] = lsimRWCues(N, Y) returns in [A] an m x n matrix of all 
+%   possible combinations of nStimuli stimuli where m = (2^n) - 1, and in
+%   [B] an m x m matrix where each row corresponds to a patterns of
+%   stimulation (i.e. a row in A) and column corresponds to
+%   respresentational unit which codes for the combination of cues
+%   specified in a row of A. uniqueCues determines whether combinations of
+%   stimuli generate unique cues. 0 = no; 1 = a single unique cue for each
+%   compound; 2 = multiple cues for componds of more than two stimuli
+%   (e.g., ABC -> ab, ac, bc, abc). [C] contains an array of alpha values
+%   for each unit and [D} contains a cell array of their names. The size of
+%   [C] and [D] depends upon the value of uniqueCues.
+
+
 %simTrials Simulator trials
 %   A = simTrials(X, Y) returns a vector of the same length as X, where
 %   each element corresponds to the index of the row in Y which is the same

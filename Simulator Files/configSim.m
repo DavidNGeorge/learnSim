@@ -616,7 +616,7 @@ end
 xLab = 0:1:size(yData, 2) - 1;
 axes(handles.simAxes);
 plot(xLab, yData', 'LineWidth', handles.defaultPlotLineWidth);
-handles.simLegend = legend(handles.Train.currentNames, 'Position', lPos);
+handles.simLegend = legend(lText, 'Position', lPos);
 legend('boxoff');
 set(get(handles.simAxes, 'XLabel'), 'String', handles.Sim.XLab);
 set(get(handles.simAxes, 'YLabel'), 'String', handles.Sim.YLab);

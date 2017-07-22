@@ -38,6 +38,14 @@ switch lower(model)
             a = 1; afile = filelist(4);
 %             s = 0;
         end
+    case 'rw'
+        in = 1; infile = filelist(1);
+        out = 1; outfile = filelist(2);
+        int = 0;
+        be = 1; befile = filelist(3);
+        r = 0;
+        a = 1; afile = filelist(4);
+%        s = 0;
 end
 
 %do some loading and checking
@@ -100,8 +108,12 @@ if a == 1
             alpha = 0.1 * ones(1,size(trials,2));
             disp('#Warning:: Too few alpha values. All alpha values set to 0.1.');
         elseif size(alpha,2) > size(trials,2)
-            alpha = alpha(:,1:size(trials,2));
-            disp('#Warning:: Too many alpha values. Surplus values discarded.');
+            if strcmpi(model, 'rw') && (size(alpha, 2) == (2^size(trials, 2) - 1))
+                disp('#Info:: Alpha values provided for each configurational unit');
+            else
+                alpha = alpha(:,1:size(trials,2));
+                disp('#Warning:: Too many alpha values. Surplus values discarded.');
+            end
         end
     end
 end
@@ -179,4 +191,10 @@ switch lower(model)
             D = alpha;
             E = eflag;
         end
+    case 'rw'
+        A = trials;
+        B = outcome;
+        C = beta;
+        D = alpha;
+        E = eflag; 
 end

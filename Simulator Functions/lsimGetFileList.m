@@ -31,12 +31,14 @@ end
 switch lower(model)
     case 'config'
         filelist = cellstr(char(ifile, ofile, infile, bfile));
-    case {'rem'}
+    case 'rem'
         if param == 1
             filelist = cellstr(char(ifile, ofile, bfile, rfile, afile));
         else
             filelist = cellstr(char(ifile, ofile, bfile, afile));
         end
+    case 'rw'
+        filelist = cellstr(char(ifile, ofile, bfile, afile));
 end
 
 fileexist = zeros(size(filelist, 1), 1);
