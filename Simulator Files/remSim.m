@@ -93,7 +93,7 @@ set(handles.TestButton, 'Enable', 'off');
 set(handles.InitButton, 'Enable', 'off');
 % Do some basic housekeeping for the simulator
 handles.appName = 'remSim';
-handles.titleBar = 'Replaced Elements Model simulator (Wagner 2003)';
+handles.titleBar = 'Replaced Elements Model simulator (Wagner, 2003)';
 set(handles.remSim, 'Name', handles.titleBar);
 % Write those defaults to handles and the gui 
 %control panel
@@ -180,7 +180,7 @@ end
 S(~ismember(S, '.1234567890')) = '';
 % Check that the string is not empty:
 if isempty(S)
-    S = num2str(handles.Network.dParam);
+    S = num2str(handles.Network.rParam);
 end
 % Check that the value is not greater than 1:
 if str2num(S) > 1
