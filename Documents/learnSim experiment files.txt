@@ -1,0 +1,31 @@
+learnSim experiment files
+in.txt – list of input pattern. One row per trial, on column per stimulus. 1 for stimulus present, 0 for stimulus absent. In a multi stage experiment, additional input files may be required but the filenames for stages after the first can be anything. e.g.: A BC ABC (x2)
+1 0 0
+0 1 1 
+1 1 1
+1 1 1
+
+out.txt – list of outcomes. One row per trial. Outcomes can have any value, positive or negative, for at least some models. In a multi stage experiment, additional output files may be required but the filenames for stages after the first can be anything. e.g.: A+ BC+ ABCo (x2)
+1
+1
+0
+0
+
+alpha.txt – salience of each stimulus (associability in simulators of Mackintosh type attention in the future). Single row. One column per stimulus (for rwSim, and potentially future simulators, alphas may optionally be included for all unique cues, too).
+e.g. 1: A B C
+.1 .1 .1
+e.g. 2: A B C [ab] [ac] [bc] [abc]
+.1 .1 .1 .05 .05 .05 .05
+
+beta.txt – US rate parameter. Single row. One or two values. If two values given, the first is used when US is present, the second when it is absent. e.g.:
+.2 .2
+
+intensity.txt – intensity of stimuli, used in configSim. Single row, one column per stimulus. e.g.: A B C
+1 1 1
+
+r.txt – matrix of replacement parameter values for remSim. Allows different amounts of replacement by different stimuli, different amounts of replacement in different stimuli, and asymmetrical replacement. One row per stimulus doing the replacement, one column per stimulus where activity is being replaced. Not required if uniform replacement used – then a single value may be specified in the interface. e.g. A B C (where A and B are in the same modality and C is in a different one).
+0 .8 .2
+.8 0 .2
+.2 .2 0
+
+sigma.txt – Pearce-Hall type associability in future simulators. Format as alpha.txt.
