@@ -1,11 +1,11 @@
-function [A,B,C,D,E,F] = lsimGetExptData(filelist, model, param)
+function [A, B, C, D, E, F, G] = lsimGetExptData(filelist, model, param)
 %simGetExptData Simulator get experiment data
 %   [A, B, C, D, E, F, G] = getexptdata(X, Y) reads a number of data
 %   files and returns information to run simulations of associative 
 %   learning models.  X = list of full path file names to read; Z = associative 
 %   learning model being simulated; Z = parameter available for some simulators 
 %   to use. data for model returned in [A, B, C,....]. The last variable 
-%   returned is an error flag. sigma included for future expansion. 
+%   returned is an error flag.
 
 eflag = 0;
 trials = [];
@@ -19,8 +19,16 @@ switch lower(model)
         be = 1; befile = filelist(4);
         r = 0;
         a = 0;
-%         s = 0;
-    case 'rem'
+        s = 0;
+    case 'gp'
+        in = 1; infile = filelist(1);
+        out = 1; outfile = filelist(2);
+        int = 1; intfile = filelist(3);
+        be = 1; befile = filelist(4);
+        r = 0;
+        a = 1; afile = filelist(5);
+        s = 0;
+    case {'rem', 'aem'}
         if param == 1
             in = 1; infile = filelist(1);
             out = 1; outfile = filelist(2);
@@ -28,7 +36,7 @@ switch lower(model)
             be = 1; befile = filelist(3);
             r = 1; rfile = filelist(4);
             a = 1; afile = filelist(5);
-%             s = 0;
+            s = 0;
         else
             in = 1; infile = filelist(1);
             out = 1; outfile = filelist(2);
@@ -36,7 +44,7 @@ switch lower(model)
             be = 1; befile = filelist(3);
             r = 0;
             a = 1; afile = filelist(4);
-%             s = 0;
+            s = 0;
         end
     case 'rw'
         in = 1; infile = filelist(1);
@@ -45,7 +53,7 @@ switch lower(model)
         be = 1; befile = filelist(3);
         r = 0;
         a = 1; afile = filelist(4);
-%        s = 0;
+        s = 0;
 end
 
 %do some loading and checking
@@ -136,20 +144,20 @@ if be == 1
     end
 end
 
-% %Sixth, the sigma file.
-% %repeat steps as for intensities.
-% if s == 1
-%     sigma = dlmread(char(sfile));
-%     if (eflag ~= 1) && (in == 1)
-%         if size(sigma,2) < size(trials,2)
-%             sigma = 0.9 * ones(1,size(trials,2));
-%             warndlg('Too few sigma values. All sigma values set to 0.9.', 'Warning');
-%         elseif size(sigma,2) > size(trials,2)
-%             sigma = sigma(:,1:size(trials,2));
-%             warndlg('Too many sigma values. Surplus values discarded.', 'Warning');
-%         end
-%     end
-% end
+%Sixth, the sigma file.
+%repeat steps as for intensities.
+if s == 1
+    sigma = dlmread(char(sfile));
+    if (eflag ~= 1) && (in == 1)
+        if size(sigma,2) < size(trials,2)
+            sigma = 0.9 * ones(1,size(trials,2));
+            disp('#Warning:: Too few sigma values. All sigma values set to 0.9.', 'Warning');
+        elseif size(sigma,2) > size(trials,2)
+            sigma = sigma(:,1:size(trials,2));
+            disp('#Warning:: Too many sigma values. Surplus values discarded.', 'Warning');
+        end
+    end
+end
 
 %Finally, the output file.
 %Once more, check whether it is being used and check size.
@@ -176,7 +184,14 @@ switch lower(model)
         C = intensity;
         D = beta;
         E = eflag;
-    case 'rem'
+    case 'gp'
+        A = trials;
+        B = outcome;
+        C = intensity;
+        D = beta;
+        E = alpha;
+        F = eflag;
+    case {'rem', 'aem'}
         if param == 1
             A = trials;
             B = outcome;

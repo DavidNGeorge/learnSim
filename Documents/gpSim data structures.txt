@@ -1,7 +1,13 @@
-configSim data structures
+gpSim data structures
 
 Network:	general properties of the network
-	.actOut			matrix of weights between output units and CUs
+	.actIn			activation across the input layer
+	.actOut			activation across the output layer
+	.alpha			matrix of effectiveness values for each stimulus
+	.alphaLinear		flag indicating whether alpha value changes are uniform across range of values, or use a formula based on the term (alpha – alphaMin)(alphaMax – alpha)
+	.alphaMax		maximum effectiveness value
+	.alphaMin		minimum effectiveness value
+	.alphaRate		effectiveness change rate parameter
 	.beta			matrix of beta parameters
 	.configNames		cell array giving name of each configural unit
 	.dParam			generalization parameter
@@ -9,21 +15,33 @@ Network:	general properties of the network
 	.intensity		matrix of values giving intensity of each stimulus
 	.nConfigs		number of configural units
 	.nStimuli		number of stimuli (ie input units)
+	.recruit		lag indicating whether new CUs should be recruited as the ability of stimuli to activate a CU changes
+	.recruitThreshold	activity level in maximally activate CU below which a new CU will be recruited
+	.sigma			matrix of associability for each CU
+	.sigmaDefault		default sigma value for new CUs
+	.sigmaMax		maximum associability value
+	.sigmaMin		minimum associability vale
+	.sigmaRate		associability change rate parameter
+	.stimNames		cell array giving name of each stimulus
+	.Wij			matrix of weights between output units and CUs
 
 Data:		training data
 	.currentVt		matrix of current net associative strength of each pattern
-	.stage(X).Et		record of training data – CU associative strength
+	.stage(X).alpha		record of training data – stimulus effectiveness
 	.stage(X).CUNames	record of training data – CU names
+	.stage(X).Et		record of training data – CU associative strength
+	.stage(X).patNames	record of training data – training pattern names
+	.stage(X).sigma		record of training data – CU associability
 	.stage(X).Vt		record of training data – pattern net associative strength
-	.Stage(X).patNames	record of training data – training pattern names
 
 Train:		features of current training set
 	.currentPatterns	patterns used in current training set
-	.currentList		list giving pattern number for each trial (reconciles .currentPats with .trials)
+	.currentList		list giving pattern number for each trial (reconciles .currentPatterns with .trials)
 	.currentNames		names of current training patterns
 	.nCurrentPats		number of training patterns
 	.nTrials		number of training trials
 	.patterns		definition of each unique pattern
+	.patternSeen		flag to show whether each pattern has been seen by the network or not
 	.trialList		list giving pattern number for each trial (reconciles .patterns with .trials)
 	.trials			definition of each training trial (read from file)
 	.outcome		list of outcomes for each training trial (read from file)
@@ -41,7 +59,7 @@ Sim:		miscellaneous properties of current simulation run
 	.xlab			x-axis label
 	.xval			x-axis tick labels
 
-Module:	properties of learnSim module (ie configSim)
+Module:		properties of learnSim module (ie gpSim)
 	.author			author of module code
 	.contact		contact address of author
 	.date			date of release

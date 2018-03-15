@@ -1,15 +1,15 @@
-rwSim data structures
+aemSim data structures
 
 Network:	general properties of the network
 	.active			units activated by each pattern
+	.activation		activity in each unit for each pattern
 	.alpha			alpha value for each stimulus
 	.beta			matrix of beta parameters
 	.nPatterns		number of possible patterns
 	.nStimuli		number of stimuli
 	.nUnits			number of units
-	.patterns		all possible patterns that the network can be exposed to
-	.patternNames		names of each pattern	
-	.uniqueCues		flag indicating type of unique cues used by network
+	.patterns		all possible patterns that the network can be exposed to	
+	.patternNames		names of each pattern
 	.unitAlpha		alpha value for each unit
 	.unitNames		name of each unit
 	.V			matrix of values giving associative strength of each unit
@@ -24,10 +24,10 @@ Train:		features of current training set
 	.currentList		list of current patterns (w.r.t. .Network.patterns)
 	.nCurrentPats		number of training patterns
 	.nTrials		number of training trials
-	.outcome	list of outcomes for each training trial (read from file)
-	.trialList	list giving pattern number for each trial (w.r.t. .Network.patterns)
+	.outcome		list of outcomes for each training trial (read from file)
+	.trialList		list giving pattern number for each trial (w.r.t. .Network.patterns)
 	.trials			definition of each training trial (read from file)
-
+	
 Sim:		miscellaneous properties of current simulation run
 	.blocks			blocks of trials in current run
 	.currentBlock		current block
@@ -41,7 +41,7 @@ Sim:		miscellaneous properties of current simulation run
 	.xlab			x-axis label
 	.xval			x-axis tick labels
 
-Module:	properties of learnSim module (ie rwSim)
+Module:		properties of learnSim module (ie aemSim)
 	.author			author of module code
 	.contact		contact address of author
 	.date			date of release

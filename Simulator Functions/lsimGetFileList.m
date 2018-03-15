@@ -1,5 +1,5 @@
 function [A, B] = lsimGetFileList(folder, model, param)
-%simGetFileList Simulator get file list
+%lsimGetFileList Simulator get file list
 %   [A, B] = simGetFileList(X, Y, Z) returns a list of data files that are
 %   required by the simulator model specified in Y, and a vector indicating
 %   whether each file exists in folder X. Z is a simulator specific
@@ -31,7 +31,9 @@ end
 switch lower(model)
     case 'config'
         filelist = cellstr(char(ifile, ofile, infile, bfile));
-    case 'rem'
+    case 'gp'
+        filelist = cellstr(char(ifile, ofile, infile, bfile, afile));
+    case {'rem', 'aem'}
         if param == 1
             filelist = cellstr(char(ifile, ofile, bfile, rfile, afile));
         else

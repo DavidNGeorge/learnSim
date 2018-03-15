@@ -1,5 +1,5 @@
 function[A] = lsimNameTrials(trials)
-%simNameTrials Simulator name trials
+%lsimNameTrials Simulator name trials
 %   [A] = simNameTrials(X) returns a list of the patterns specified in
 %   matrix [X].
 

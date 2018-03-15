@@ -277,7 +277,7 @@ if ~eflag
         handles.Sim.XLab = 'Epochs';
     else
         handles.Sim.XLab = ['Blocks of ' num2str(handles.Sim.epochs) ' epochs'];
-    end;
+    end
     set(handles.RandomCheckBox, 'Enable', 'off');
     set(handles.rValue, 'Enable', 'off');
     set(handles.rLabel, 'Enable', 'off');

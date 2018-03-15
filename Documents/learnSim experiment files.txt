@@ -11,7 +11,7 @@ out.txt – list of outcomes. One row per trial. Outcomes can have any value, posi
 0
 0
 
-alpha.txt – salience of each stimulus (associability in simulators of Mackintosh type attention in the future). Single row. One column per stimulus (for rwSim, and potentially future simulators, alphas may optionally be included for all unique cues, too).
+alpha.txt – salience of each stimulus (associability in simulators of Mackintosh type attention). Single row. One column per stimulus (for rwSim alphas may optionally be included for all unique cues, too).
 e.g. 1: A B C
 .1 .1 .1
 e.g. 2: A B C [ab] [ac] [bc] [abc]
@@ -28,4 +28,11 @@ r.txt – matrix of replacement parameter values for remSim. Allows different amou
 .8 0 .2
 .2 .2 0
 
-sigma.txt – Pearce-Hall type associability in future simulators. Format as alpha.txt.
+sigma.txt – [not yet implemented] Pearce-Hall type associability simulators. Format as alpha.txt. Single row. One column per stimulus.
+
+
+Requirements for each model:
+rwSim – in, out, alpha, beta
+aemSim, remSim – in, out, alpha, beta, r (optional)
+configSim – in, out, beta, intensity
+gpSim – in, out, alpha, beta, intensity
