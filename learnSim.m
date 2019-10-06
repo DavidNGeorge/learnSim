@@ -122,16 +122,6 @@ function RWbutton_Callback(hObject, eventdata, handles)
     guidata(hObject, handles);
 
 
-% --- Executes on button press in GPbutton.
-function GPbutton_Callback(hObject, eventdata, handles)
-% hObject    handle to GPbutton (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-    gpSim;
-    set(handles.GPbutton, 'Enable', 'off');
-    guidata(hObject, handles);
-
-
 % --- Executes on button press in NAEbutton.
 function NAEbutton_Callback(hObject, eventdata, handles)
 % hObject    handle to NAEbutton (see GCBO)

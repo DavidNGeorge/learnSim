@@ -477,13 +477,14 @@ if inFile
             handles.Network.configNames = lsimNameTrials(handles.Train.patterns);
             handles.Data.stage(handles.Sim.currentStage).CUNames = handles.Network.configNames;
             handles.Train.currentList = lsimTrials(handles.Train.currentPatterns, handles.Train.patterns);
-            [handles.Train.nCurrentPats, ~] = size(handles.Train.currentList);
+            handles.Train.nCurrentPats= size(handles.Train.currentList, 1);
             handles.Train.currentNames = handles.Network.configNames(handles.Train.currentList);
             handles.Data.stage(handles.Sim.currentStage).patNames = handles.Train.currentNames;
             handles.Train.nTrials = size(handles.Train.trials, 1);
             handles.Network.nConfigs = size(handles.Train.patterns, 1);
             handles.Network.E = [handles.Network.E'; zeros(handles.Network.nConfigs - size(handles.Network.E, 2), 1)]';
             handles.Data.stage(handles.Sim.currentStage).Et = handles.Network.E;
+            handles.Data.currentVt = [];
             for patNum = 1:1:handles.Train.nCurrentPats
                 Vsum = sum(handles.Network.E .* ((handles.Network.actOut * handles.Network.actOut(handles.Train.currentList(patNum), :)') .^ handles.Network.dParam)');
                 handles.Data.currentVt(patNum) = Vsum;
