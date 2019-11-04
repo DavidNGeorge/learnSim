@@ -22,7 +22,7 @@ function varargout = aemSim(varargin)
 
 % Edit the above text to modify the response to help aemSim
 
-% Last Modified by GUIDE v2.5 15-Mar-2018 09:31:53
+% Last Modified by GUIDE v2.5 01-Nov-2019 09:31:53
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -61,7 +61,7 @@ handles.Module.description = 'Context-dependent Added Elements Model';
 handles.Module.author = 'David N. George';
 handles.Module.institution = 'University of Hull';
 handles.Module.contact = 'd.george@hull.ac.uk';
-handles.Module.date = 'March 2018';
+handles.Module.date = 'November 2019';
 % Set up default values in one place for convenience
 handles.Sim.figTitleList = {'Patterns', 'Stimuli'};
 handles.defaultBlocks = 1;
