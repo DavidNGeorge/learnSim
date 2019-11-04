@@ -1,4 +1,4 @@
-aemSim data structures
+aemSim data structures (context-dependent added elements model; C-AEM)
 
 Network:	general properties of the network
 	.active			units activated by each pattern
