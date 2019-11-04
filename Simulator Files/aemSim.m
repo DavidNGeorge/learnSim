@@ -22,7 +22,7 @@ function varargout = aemSim(varargin)
 
 % Edit the above text to modify the response to help aemSim
 
-% Last Modified by GUIDE v2.5 06-Oct-2019 16:52:55
+% Last Modified by GUIDE v2.5 15-Mar-2018 09:31:53
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -57,7 +57,7 @@ movegui(gcf, 'center');
 % Description of simulator module
 handles.Module.name = 'aemSim';
 handles.Module.version = 'v1.0.0';
-handles.Module.description = 'Normalized Added Elements Model';
+handles.Module.description = 'Context-dependent Added Elements Model';
 handles.Module.author = 'David N. George';
 handles.Module.institution = 'University of Hull';
 handles.Module.contact = 'd.george@hull.ac.uk';
@@ -94,7 +94,7 @@ set(handles.StimFigButton, 'Enable', 'off');
 set(handles.InitButton, 'Enable', 'off');
 % Do some basic housekeeping for the simulator
 handles.appName = 'aemSim';
-handles.titleBar = 'Normalized Added Elements Model';
+handles.titleBar = 'Context-dependent Added Elements Model';
 set(handles.aemSim, 'Name', handles.titleBar);
 % Write those defaults to handles and the gui 
 %control panel
@@ -145,7 +145,7 @@ hMain = findobj('Tag', 'learnSim');
 % fetch data associated with main GUI
 mainGuiData = guidata(hMain);
 % re-enable push buttons
-set(mainGuiData.NAEbutton, 'Enable', 'on');
+set(mainGuiData.CAEbutton, 'Enable', 'on');
 % return main GUI data
 guidata(hMain, mainGuiData);
 
@@ -566,7 +566,7 @@ if loadFile
         if (strcmp(err.identifier, 'MATLAB:load:notBinaryFile'))
             errordlg('Not a binary MAT file', 'Load Error', 'modal');
         elseif (strcmp(err.identifier, 'MATLAB:nonExistentField'))
-            errordlg('Not a Normalized Added Elements file', 'Load Error', 'modal');
+            errordlg('Not a Context-dependent Added Elements file', 'Load Error', 'modal');
         else
             cd(currentFolder)
             rethrow(err);

@@ -22,7 +22,7 @@ function varargout = learnSim(varargin)
 
 % Edit the above text to modify the response to help learnSim
 
-% Last Modified by GUIDE v2.5 14-Mar-2018 09:03:16
+% Last Modified by GUIDE v2.5 04-Nov-2019 10:48:24
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -122,11 +122,11 @@ function RWbutton_Callback(hObject, eventdata, handles)
     guidata(hObject, handles);
 
 
-% --- Executes on button press in NAEbutton.
-function NAEbutton_Callback(hObject, eventdata, handles)
-% hObject    handle to NAEbutton (see GCBO)
+% --- Executes on button press in CAEbutton.
+function CAEbutton_Callback(hObject, eventdata, handles)
+% hObject    handle to CAEbutton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
     aemSim;
-    set(handles.NAEbutton, 'Enable', 'off');
+    set(handles.CAEbutton, 'Enable', 'off');
     guidata(hObject, handles);
